@@ -33,6 +33,10 @@
             button1_Clicked(){
                 console.log(this.neki_objekt);
                 this.neki_objekt.ime="Nikola";
+                this.$emit('button1Clicked', {
+                    event_value: 'Neka vrednost',
+                    event_value2: 'Neka vrednost'
+                });
             }
         },
         created(){
