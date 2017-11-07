@@ -1,7 +1,7 @@
 <template>
   <div>
-    <my_header></my_header>
-    <my_footer></my_footer>
+    <component v-bind:is="cur_component"></component>
+    <button v-on:click="button1Clicked">Change current component</button>
   </div>
 </template>
 
@@ -13,7 +13,24 @@ export default {
     components:{
         'my_header': Header,
         'my_footer': Footer
+    },
+    data(){
+      return{
+        cur_component: 'my_header'
+      }
+    },
+    methods:{
+      button1Clicked(){
+        if(this.cur_component == 'my_header'){
+          this.cur_component = 'my_footer'
+        }
+        else
+        {
+          this.cur_component = 'my_header'
+        }
+      }
     }
+
 }
 </script>
 

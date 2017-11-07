@@ -1,20 +1,14 @@
 <template>
   <div>
-    <h1>Header {{changed}}</h1>
+    <slot name="slot1"></slot>
+    <h1>I'm a header</h1>
+    <slot name="slot2"></slot>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    changed: 'not changed';
-  },
-  methods:{
-    changeTitle(){
-      this.changed="is changed";
-    }
-  }
-}
+
+
 </script>
 
 <style>
