@@ -21,22 +21,27 @@
 
     <button v-on:click="getPosts">Get Posts</button>
 
+    <posts-component v-bind:posts="this.postsArray"></posts-component>
+    
   </div>
 </template>
 
 <script>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
+import PostsComponent from './PostsComponent.vue';
 
 export default {
     components:{
         'my_header': Header,
-        'my_footer': Footer
+        'my_footer': Footer,
+        'posts-component': PostsComponent
     },
     data(){
       return{
         cur_component: 'my_header',
-        checkBoxValues: []
+        checkBoxValues: [],
+        postsArray: []
       }
     },
     methods:{
@@ -51,7 +56,9 @@ export default {
       },
       getPosts(){
         this.$http.get('https://jsonplaceholder.typicode.com/posts').then((data)=>{
-          console.log(data)
+          //console.log(data);
+          this.postsArray=data.body;
+          //console.log(this.postsArray);
         }).catch((error)=>{
           console.log(error)
         })
