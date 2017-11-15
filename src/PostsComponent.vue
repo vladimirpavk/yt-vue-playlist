@@ -20,8 +20,7 @@ import PostComponent from './PostComponent.vue';
                 required: true
             }
         },
-        created(){
-            //console.log(post);
+        created(){           
         },
         data() {
             return {

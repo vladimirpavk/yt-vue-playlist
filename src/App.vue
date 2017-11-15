@@ -16,7 +16,9 @@
     <hr>
 
     {{checkBoxValues}}
-    
+    {{randomNumber}}
+    {{my_mix_title}}
+
     <hr>
 
     <button v-on:click="getPosts">Get Posts</button>
@@ -30,6 +32,8 @@
 import Header from './Header.vue';
 import Footer from './Footer.vue';
 import PostsComponent from './PostsComponent.vue';
+
+import mixinsFile from './MixinsFile.js';
 
 export default {
     components:{
@@ -63,8 +67,13 @@ export default {
           console.log(error)
         })
       }
-    }
-
+    },
+      computed:{
+        randomNumber2() {
+          return Math.random();
+        }
+      },
+      mixins: [mixinsFile]
 }
 </script>
 
